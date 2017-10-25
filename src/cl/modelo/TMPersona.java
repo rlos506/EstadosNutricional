@@ -25,7 +25,7 @@ public class TMPersona implements TableModel{
 
     @Override
     public int getColumnCount() {
-        return 6;
+        return 7;
         }
 
     @Override
@@ -56,7 +56,10 @@ public class TMPersona implements TableModel{
                 titulo = "Altura";
                 break;
             }
-            
+            case 6:{
+                titulo = "Nutricion";
+                break;
+            }
            
             
         }
@@ -103,6 +106,10 @@ public class TMPersona implements TableModel{
                 valor = String.valueOf(p.getAltura());
                 break;
             }
+            case 6:{
+                valor = p.getNutricion();
+                break;
+            }
             
             
         }
@@ -136,6 +143,9 @@ public class TMPersona implements TableModel{
             }
             case 5:{
                 p.setAltura(aValue.hashCode());
+                break;
+            }case 6:{
+                p.setNutricion(aValue.toString());
                 break;
             }
            

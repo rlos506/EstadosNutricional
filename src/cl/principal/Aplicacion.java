@@ -48,8 +48,6 @@ public class Aplicacion extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tab = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
-        nutri = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,14 +94,6 @@ public class Aplicacion extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 0, 102));
         jLabel7.setText("Estado Nutricional");
 
-        nutri.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nutriActionPerformed(evt);
-            }
-        });
-
-        jLabel8.setText("EstadoNutricional");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -147,11 +137,7 @@ public class Aplicacion extends javax.swing.JFrame {
                                 .addGap(10, 10, 10)
                                 .addComponent(peso, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
-                    .addComponent(nutri))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,13 +162,8 @@ public class Aplicacion extends javax.swing.JFrame {
                     .addComponent(altura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(nutri, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49))
         );
 
@@ -195,6 +176,8 @@ public class Aplicacion extends javax.swing.JFrame {
         genero.setText("");
         peso.setText("");     
         altura.setText(""); 
+        
+        
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -205,20 +188,16 @@ public class Aplicacion extends javax.swing.JFrame {
         personas.setGenero(genero.getText());
         personas.setPeso(Float.parseFloat(peso.getText()));
         personas.setAltura(Float.parseFloat(altura.getText()));
-        
+        personas.setNutricion(personas.estadoNutricional());
         personas1 = new ArrayList<>();
-        personas1.add(new Persona(personas.getNombre(),personas.getEdad(),personas.getCedula(),personas.getGenero(),personas.getPeso(),personas.getAltura()));
-        nutri.setText(personas.estadoNutricional());
+        personas1.add(new Persona(personas.getNombre(),personas.getEdad(),personas.getCedula(),personas.getGenero(),personas.getPeso(),personas.getAltura(),personas.getNutricion()));
+       // nutri.setText(personas.estadoNutricional());
         modelo = new TMPersona(personas1);
         tab.setModel(modelo);
         limpiarCampos();
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void nutriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutriActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nutriActionPerformed
 
     /**
      * @param args the command line arguments
@@ -271,10 +250,8 @@ public class Aplicacion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nombre;
-    private javax.swing.JTextField nutri;
     private javax.swing.JTextField peso;
     private javax.swing.JTable tab;
     // End of variables declaration//GEN-END:variables

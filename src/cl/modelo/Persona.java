@@ -7,6 +7,7 @@ public class Persona {
     private String genero;
     private float peso;
     private float altura;
+    private String nutri;
     
     public Persona(){
      this.nombre = "";
@@ -15,17 +16,18 @@ public class Persona {
      this.genero = "hombre";
      this.peso = 0.0f;
      this.altura = 0.0f;
+     this.nutri= "";
         
     }
     
-    public Persona(String nombre, int edad, String cedula, String genero,float peso,float altura){
+    public Persona(String nombre, int edad, String cedula, String genero,float peso,float altura, String nutri){
      this.nombre = nombre;
      this.edad = edad;
      this.cedula = cedula;
      this.genero = genero;
      this.peso = peso;
      this.altura = altura;
-        
+     this.nutri = nutri;    
     }
     
     public String getNombre(){
@@ -64,7 +66,12 @@ public class Persona {
     public void setAltura(float altura){
         this.altura = altura;
     }
-    
+    public String getNutricion(){
+        return this.nutri;
+    }
+    public void setNutricion(String nutri){
+        this.nutri = nutri;
+    }
     
     public float imc(){
         float imc;
